@@ -4,8 +4,7 @@ var React           = require('react'),
     QuestionStore   = require('../stores/QuestionStore'),
     QuestionActions = require('../actions/QuestionActions'),
     ThemeManager    = new mui.Styles.ThemeManager(),
-    TextField       = mui.TextField,
-    idQuestionInput = "question";
+    TextField       = mui.TextField
 
 var InputTextQuestion = React.createClass({
 
@@ -45,10 +44,10 @@ var InputTextQuestion = React.createClass({
 
   _handleOnChange: function(e) {
     // save question in question store
-    if (e)
-      QuestionActions.save(e.target.value);
+    QuestionActions.save( this.refs.inputQuestion.getValue() )
+
     this.setState({
-      questionValue: QuestionStore.get()
+      questionValue: this.refs.inputQuestion.getValue() // QuestionStore.get()
     });
   },
 
@@ -59,7 +58,7 @@ var InputTextQuestion = React.createClass({
     return (
       <div className="textQuestion">
         <TextField
-          id             = "question"
+          ref            = "inputQuestion"
           hintText       = "type here a decision you want to consider ..."
           fullWidth      = {true}
           value          = {this.state.questionValue}
