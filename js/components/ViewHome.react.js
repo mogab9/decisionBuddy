@@ -1,5 +1,6 @@
 
-var React    = require('react');
+var React             = require('react'),
+    InputTextQuestion = require('./InputTextQuestion.react');
 
 var ViewHome = React.createClass({
 
@@ -10,7 +11,9 @@ var ViewHome = React.createClass({
    */
   render: function() {
     return (
-      <div className="Home">ViewHome</div>
+      <div className="Home">
+        <InputTextQuestion />
+      </div>
     );
   },
 
