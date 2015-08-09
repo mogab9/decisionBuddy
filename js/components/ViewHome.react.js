@@ -4,18 +4,18 @@ var React             = require('react'),
 
 var ViewHome = React.createClass({
 
-  displayName: 'ViewHome',
+    displayName: 'ViewHome',
 
-  /**
-   * @return {object}
-   */
-  render: function() {
-    return (
-      <div className="Home">
-        <InputTextQuestion />
-      </div>
-    );
-  },
+    /**
+    * @return {object}
+    */
+    render: function() {
+        return (
+            <div className="Home">
+                <InputTextQuestion />
+            </div>
+        );
+    },
 
 });
 

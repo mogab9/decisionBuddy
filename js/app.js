@@ -11,15 +11,15 @@ var React         = require('react'),
 
 // declare our routes and their hierarchy
 var routes = (
-  <Route path="/" handler={App} >
-    <DefaultRoute handler={ViewHome} />
-    <NotFoundRoute handler={ViewHome} />
+    <Route path="/" handler={App} >
+        <DefaultRoute handler={ViewHome} />
+        <NotFoundRoute handler={ViewHome} />
 
-    <Route name="rate" handler={ViewRate} path="/rate"/>
-    <Route name="result" handler={ViewResult} path="/result"/>
-  </Route>
+        <Route name="rate" handler={ViewRate} path="/rate"/>
+        <Route name="result" handler={ViewResult} path="/result"/>
+    </Route>
 );
 
 Router.run(routes, function (Handler) {
-  React.render(<Handler/>, document.getElementById('decisionbuddyapp'));
+    React.render(<Handler/>, document.getElementById('decisionbuddyapp'));
 });

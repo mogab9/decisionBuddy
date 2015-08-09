@@ -3,16 +3,16 @@ var React      = require('react');
 
 var ViewResult = React.createClass({
 
-  displayName: 'ViewResult',
+    displayName: 'ViewResult',
 
-  /**
-   * @return {object}
-   */
-  render: function() {
-    return (
-      <div className="Result">ViewResult</div>
-    );
-  },
+    /**
+    * @return {object}
+    */
+    render: function() {
+        return (
+            <div className="Result">ViewResult</div>
+        );
+    },
 
 });
 
