@@ -63,6 +63,7 @@ AppDispatcher.register(function(action) {
     switch(action.actionType) {
         case AppConstants.QUESTION_SAVE:
             update({question: action.question});
+            QuestionStore.emitChange();
             break;
 
         case AppConstants.QUESTION_ADD_QUESTIONMARK:

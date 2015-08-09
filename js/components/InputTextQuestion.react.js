@@ -35,7 +35,7 @@ var InputTextQuestion = React.createClass({
     },
 
     _handleQuestionInputBlur: function(e) {
-        QuestionActions.addQuestionMark(e.target.value);
+        QuestionActions.addQuestionMark( this.refs.inputQuestion.getValue() );
     },
 
     _handleQuestionInputKeyDown: function(e) {
@@ -44,10 +44,11 @@ var InputTextQuestion = React.createClass({
 
     _handleOnChange: function(e) {
         // save question in question store
-        QuestionActions.save( this.refs.inputQuestion.getValue() );
+        if (e != undefined)
+            QuestionActions.save( this.refs.inputQuestion.getValue() )
 
         this.setState({
-          questionValue: this.refs.inputQuestion.getValue() // QuestionStore.get()
+          questionValue: QuestionStore.get()
         });
     },
 
