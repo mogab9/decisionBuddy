@@ -1,14 +1,25 @@
 
 var React           = require('react'),
     mui             = require('material-ui'),
-    //ProConStore   = require('../stores/ProConStore'),
-    //ProConActions = require('../actions/ProConActions'),
+    ProConStore     = require('../stores/ProConStore'),
+    ProConActions   = require('../actions/ProConActions'),
     ThemeManager    = new mui.Styles.ThemeManager(),
     TextField       = mui.TextField,
     Card            = mui.Card,
+    CardHeader      = mui.CardHeader,
     CardText        = mui.CardText,
     FlatButton      = mui.FlatButton,
     CardActions     = mui.CardActions;
+
+var ListProConItemWrapper = React.createClass({
+    render: function() {
+        return (
+            <li>
+                {this.props.data.text.text}
+            </li>
+        );
+    }
+});
 
 var InputTextProCon = React.createClass({
 
@@ -19,15 +30,11 @@ var InputTextProCon = React.createClass({
     },
 
     componentDidMount: function() {
-        //ProConStore.addChangeListener(this._handleOnChange);
+        ProConStore.addChangeListener(this._handleOnChange);
     },
 
     componentWillUnmount: function() {
-        //ProConStore.removeChangeListener(this._handleOnChange);
-    },
-
-    getInitialState: function() {
-        return {};
+        ProConStore.removeChangeListener(this._handleOnChange);
     },
 
     getChildContext: function() {
@@ -36,14 +43,38 @@ var InputTextProCon = React.createClass({
         };
     },
 
+    getInitialState: function() {
+        return {
+            proConList: ProConStore.getAll()
+        };
+    },
+
+    _handleProInputClick: function(e) {
+        debugger;
+        var input = this.refs.inputProCon.getValue();
+        if (input.length > 0)
+            ProConActions.addPro( this.refs.inputProCon.getValue() );
+        // TODO: clear input
+    },
+
+    _handleConInputClick: function(e) {
+        var input = this.refs.inputProCon.getValue();
+        if (input.length > 0)
+            ProConActions.addCon( this.refs.inputProCon.getValue() );
+        // TODO: clear input
+    },
+
     _handleOnChange: function(e) {
-        // TODO
+        this.setState({
+            proConList: ProConStore.getAll()
+        });
     },
 
     /**
     * @return {object}
     */
     render: function() {
+        var proConList = this.state.proConList;
         return (
             <div className="textProCon">
                 <Card>
@@ -54,11 +85,25 @@ var InputTextProCon = React.createClass({
                           fullWidth = {true}
                         />
                         <CardActions>
-                            <FlatButton label="Pro"/>
-                            <FlatButton label="Con"/>
+                            <FlatButton
+                                label   = "Pro"
+                                onClick = {this._handleProInputClick}
+                            />
+                            <FlatButton
+                                label   = "Con"
+                                onClick = {this._handleConInputClick}
+                            />
                         </CardActions>
                     </CardText>
                 </Card>
+                <ul>
+                    {proConList.pros.map(function(object) {
+                        return <ListProConItemWrapper key={object.id} data={object}/>
+                    })}
+                    {proConList.cons.map(function(object) {
+                        return <ListProConItemWrapper key={object.id} data={object}/>
+                    })}
+                </ul>
             </div>
         );
     },
