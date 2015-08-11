@@ -52,6 +52,7 @@ var ProConStore = assign({}, EventEmitter.prototype, {
     addPro: function(text) {
         _data.pros.push({
             id  : 'pro_'+_data.pros.length,
+            type: 'pro',
             text: text
         });
     },
@@ -62,6 +63,7 @@ var ProConStore = assign({}, EventEmitter.prototype, {
     addCon: function(text) {
         _data.cons.push({
             id  : 'con_'+_data.cons.length,
+            type: 'con',
             text: text
         });
     }

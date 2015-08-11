@@ -81,10 +81,12 @@ var InputTextProCon = React.createClass({
                         />
                         <CardActions>
                             <FlatButton
+                                ref     = "addPro"
                                 label   = "Pro"
                                 onClick = {this._handleProInputClick}
                             />
                             <FlatButton
+                                ref     = "addCon"
                                 label   = "Con"
                                 onClick = {this._handleConInputClick}
                             />
@@ -94,8 +96,11 @@ var InputTextProCon = React.createClass({
                 <ul>
                     {proConList.map(function(list) {
                         return list.map(function(object) {
+                            var className = (object.type == 'pro')
+                                ? 'proconcard procard'
+                                : 'proconcard concard';
                             return (
-                                <Card key={object.id}>
+                                <Card className={className} key={object.id}>
                                     <CardText>
                                         <ListProConItemWrapper data={object} />
                                     </CardText>
