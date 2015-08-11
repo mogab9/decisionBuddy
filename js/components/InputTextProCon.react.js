@@ -13,11 +13,7 @@ var React           = require('react'),
 
 var ListProConItemWrapper = React.createClass({
     render: function() {
-        return (
-            <li>
-                {this.props.data.text.text}
-            </li>
-        );
+        return <li>{this.props.data.text.text}</li>;
     }
 });
 
@@ -73,7 +69,7 @@ var InputTextProCon = React.createClass({
     * @return {object}
     */
     render: function() {
-        var proConList = this.state.proConList;
+        var proConList = [this.state.proConList.pros, this.state.proConList.cons];
         return (
             <div className="textProCon">
                 <Card>
@@ -96,11 +92,16 @@ var InputTextProCon = React.createClass({
                     </CardText>
                 </Card>
                 <ul>
-                    {proConList.pros.map(function(object) {
-                        return <ListProConItemWrapper key={object.id} data={object}/>
-                    })}
-                    {proConList.cons.map(function(object) {
-                        return <ListProConItemWrapper key={object.id} data={object}/>
+                    {proConList.map(function(list) {
+                        return list.map(function(object) {
+                            return (
+                                <Card key={object.id}>
+                                    <CardText>
+                                        <ListProConItemWrapper data={object} />
+                                    </CardText>
+                                </Card>
+                            );
+                        });
                     })}
                 </ul>
             </div>
