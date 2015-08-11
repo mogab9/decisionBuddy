@@ -50,18 +50,17 @@ var InputTextProCon = React.createClass({
     },
 
     _handleProInputClick: function(e) {
-        debugger;
         var input = this.refs.inputProCon.getValue();
         if (input.length > 0)
             ProConActions.addPro( this.refs.inputProCon.getValue() );
-        // TODO: clear input
+        this.refs.inputProCon.setValue('');
     },
 
     _handleConInputClick: function(e) {
         var input = this.refs.inputProCon.getValue();
         if (input.length > 0)
             ProConActions.addCon( this.refs.inputProCon.getValue() );
-        // TODO: clear input
+        this.refs.inputProCon.setValue('');
     },
 
     _handleOnChange: function(e) {
