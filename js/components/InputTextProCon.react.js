@@ -45,6 +45,14 @@ var InputTextProCon = React.createClass({
         };
     },
 
+    /**
+    * @return whether the finish button can be displayed or not
+    */
+    getCanBeFinished: function() {
+        return (this.state.proConList.cons.length > 0
+            &&  this.state.proConList.pros.length > 0);
+    },
+
     _handleProInputClick: function(e) {
         var input = this.refs.inputProCon.getValue();
         if (input.length > 0)
@@ -59,17 +67,39 @@ var InputTextProCon = React.createClass({
         this.refs.inputProCon.setValue('');
     },
 
+    _handleFinish: function(e) {
+        console.log('_handleFinish');
+        // TODO: go to the ViewRate
+    },
+
     _handleOnChange: function(e) {
         this.setState({
             proConList: ProConStore.getAll()
         });
     },
 
+    getFinishButton: function()
+    {
+        console.log(this.getCanBeFinished());
+        if (this.getCanBeFinished()) {
+            return (
+                <FlatButton
+                    ref     = "finish"
+                    label   = "finish"
+                    onClick = {this._handleFinish}
+                />
+            );
+        }
+        // simili-undefined because CardActions can't handle an undefined view
+        return (<span/>);
+    },
+
     /**
     * @return {object}
     */
     render: function() {
-        var proConList = [this.state.proConList.pros, this.state.proConList.cons];
+        var proConList   = [this.state.proConList.pros, this.state.proConList.cons];
+
         return (
             <div className="textProCon">
                 <Card>
@@ -90,9 +120,11 @@ var InputTextProCon = React.createClass({
                                 label   = "Con"
                                 onClick = {this._handleConInputClick}
                             />
+                            {this.getFinishButton()}
                         </CardActions>
                     </CardText>
                 </Card>
+
                 <ul>
                     {proConList.map(function(list) {
                         return list.map(function(object) {
