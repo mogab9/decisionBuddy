@@ -80,7 +80,6 @@ var InputTextProCon = React.createClass({
 
     getFinishButton: function()
     {
-        console.log(this.getCanBeFinished());
         if (this.getCanBeFinished()) {
             return (
                 <FlatButton
