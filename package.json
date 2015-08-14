@@ -17,11 +17,14 @@
     "envify": "^3.0.0",
     "reactify": "^0.15.2",
     "uglify-js": "~2.4.15",
-    "watchify": "^2.1.1"
+    "watchify": "^2.1.1",
+    "livereloadify": "^2.0.0",
+    "node-static": "^0.7.7"
   },
   "scripts": {
-    "start": "watchify -o js/bundle.js -v -d js/app.js",
-    "build": "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm > js/bundle.min.js"
+    "start":     "watchify -o js/bundle.js -v -d js/app.js",
+    "startlive": "npm run start | livereloadify js | static js",
+    "build":     "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm > js/bundle.min.js"
   },
   "author": "Gabriel Peyrot",
   "browserify": {
