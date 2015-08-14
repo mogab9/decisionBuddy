@@ -1,9 +1,11 @@
 
 var React           = require('react'),
+    Router          = require('react-router'),
     mui             = require('material-ui'),
     ProConStore     = require('../stores/ProConStore'),
     ProConActions   = require('../actions/ProConActions'),
     ThemeManager    = new mui.Styles.ThemeManager(),
+    Link            = Router.Link,
     TextField       = mui.TextField,
     Card            = mui.Card,
     CardHeader      = mui.CardHeader,
@@ -67,11 +69,6 @@ var InputTextProCon = React.createClass({
         this.refs.inputProCon.setValue('');
     },
 
-    _handleFinish: function(e) {
-        console.log('_handleFinish');
-        // TODO: go to the ViewRate
-    },
-
     _handleOnChange: function(e) {
         this.setState({
             proConList: ProConStore.getAll()
@@ -82,11 +79,12 @@ var InputTextProCon = React.createClass({
     {
         if (this.getCanBeFinished()) {
             return (
-                <FlatButton
-                    ref     = "finish"
-                    label   = "finish"
-                    onClick = {this._handleFinish}
-                />
+                <Link to="rate">
+                    <FlatButton
+                        ref   = "finish"
+                        label = "finish"
+                    />
+                </Link>
             );
         }
         // simili-undefined because CardActions can't handle an undefined view
