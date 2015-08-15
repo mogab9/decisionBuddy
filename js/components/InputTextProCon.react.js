@@ -120,18 +120,7 @@ var InputTextProCon = React.createClass({
                 <ul>
                     {proConList.map(function(list) {
                         return list.map(function(object) {
-                            var className = (object.type == 'pro')
-                                ? 'proconcard procard'
-                                : 'proconcard concard';
-                            return (
-                                <li>
-                                    <Card className={className}>
-                                        <CardText key={object.id}>
-                                            <ProConItem data={object} />
-                                        </CardText>
-                                    </Card>
-                                </li>
-                            );
+                            return <li><ProConItem data={object} /></li>;
                         });
                     })}
                 </ul>

@@ -39,18 +39,9 @@ var InputRate = React.createClass({
         // no more pro/con to rate, redirect to result page
         if (proConToRate == true)
             this.transitionTo('result');
-        var className = (proConToRate.type == 'pro')
-            ? 'proconcard procard'
-            : 'proconcard concard';
         return (
             <ul className="proConRate">
-                <li>
-                    <Card className={className}>
-                        <CardText key={proConToRate.id}>
-                            <ProConItem data={proConToRate} />
-                        </CardText>
-                    </Card>
-                </li>
+                <li><ProConItem data={proConToRate} /></li>
             </ul>
         );
     },
