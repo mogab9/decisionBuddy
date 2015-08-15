@@ -4,6 +4,7 @@ var React           = require('react'),
     mui             = require('material-ui'),
     ProConStore     = require('../stores/ProConStore'),
     ProConActions   = require('../actions/ProConActions'),
+    ProConItem      = require('./ProConItem.react'),
     ThemeManager    = new mui.Styles.ThemeManager(),
     TextField       = mui.TextField,
     Card            = mui.Card,
@@ -32,21 +33,25 @@ var InputRate = React.createClass({
     */
     render: function() {
         var proConToRate = ProConStore.getNextUnmarkedProCon();
-        console.log(proConToRate);
         // no pro in list and no con in list, redirect to home page
         if (proConToRate == false)
             this.transitionTo('/');
         // no more pro/con to rate, redirect to result page
         if (proConToRate == true)
             this.transitionTo('result');
+        var className = (proConToRate.type == 'pro')
+            ? 'proconcard procard'
+            : 'proconcard concard';
         return (
-            <div className="proConRate">
-                <Card>
-                    <CardText>
-                        // TODO: Create a proConItem item an use it everywhere to be DRY
-                    </CardText>
-                </Card>
-            </div>
+            <ul className="proConRate">
+                <li>
+                    <Card className={className}>
+                        <CardText key={proConToRate.id}>
+                            <ProConItem data={proConToRate} />
+                        </CardText>
+                    </Card>
+                </li>
+            </ul>
         );
     },
 

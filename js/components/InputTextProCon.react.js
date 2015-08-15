@@ -4,6 +4,7 @@ var React           = require('react'),
     mui             = require('material-ui'),
     ProConStore     = require('../stores/ProConStore'),
     ProConActions   = require('../actions/ProConActions'),
+    ProConItem      = require('./ProConItem.react'),
     ThemeManager    = new mui.Styles.ThemeManager(),
     Link            = Router.Link,
     TextField       = mui.TextField,
@@ -12,12 +13,6 @@ var React           = require('react'),
     CardText        = mui.CardText,
     FlatButton      = mui.FlatButton,
     CardActions     = mui.CardActions;
-
-var ListProConItemWrapper = React.createClass({
-    render: function() {
-        return <li>{this.props.data.text.text}</li>;
-    }
-});
 
 var InputTextProCon = React.createClass({
 
@@ -129,11 +124,13 @@ var InputTextProCon = React.createClass({
                                 ? 'proconcard procard'
                                 : 'proconcard concard';
                             return (
-                                <Card className={className} key={object.id}>
-                                    <CardText>
-                                        <ListProConItemWrapper data={object} />
-                                    </CardText>
-                                </Card>
+                                <li>
+                                    <Card className={className}>
+                                        <CardText key={object.id}>
+                                            <ProConItem data={object} />
+                                        </CardText>
+                                    </Card>
+                                </li>
                             );
                         });
                     })}

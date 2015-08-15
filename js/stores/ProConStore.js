@@ -93,12 +93,12 @@ var ProConStore = assign({}, EventEmitter.prototype, {
 AppDispatcher.register(function(action) {
     switch(action.actionType) {
         case AppConstants.PROCONLIST_ADDPRO:
-            ProConStore.addPro({text: action.text});
+            ProConStore.addPro(action.text);
             ProConStore.emitChange();
             break;
 
         case AppConstants.PROCONLIST_ADDCON:
-            ProConStore.addCon({text: action.text});
+            ProConStore.addCon(action.text);
             ProConStore.emitChange();
             break;
 
