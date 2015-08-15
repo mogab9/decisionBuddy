@@ -1,18 +1,15 @@
 
 var React           = require('react'),
     mui             = require('material-ui'),
+    MixinMui        = require('./MixinMui.react'),
     QuestionStore   = require('../stores/QuestionStore'),
     QuestionActions = require('../actions/QuestionActions'),
-    ThemeManager    = new mui.Styles.ThemeManager(),
     TextField       = mui.TextField;
 
 var InputTextQuestion = React.createClass({
 
     displayName: 'InputTextQuestion',
-
-    childContextTypes: {
-        muiTheme: React.PropTypes.object
-    },
+    mixins:      [MixinMui],
 
     componentDidMount: function() {
         QuestionStore.addChangeListener(this._handleOnChange);
@@ -25,12 +22,6 @@ var InputTextQuestion = React.createClass({
     getInitialState: function() {
         return {
           questionValue: QuestionStore.get()
-        };
-    },
-
-    getChildContext: function() {
-        return {
-          muiTheme: ThemeManager.getCurrentTheme()
         };
     },
 

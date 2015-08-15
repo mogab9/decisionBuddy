@@ -2,25 +2,22 @@
 var React           = require('react'),
     Router          = require('react-router'),
     mui             = require('material-ui'),
+    MixinMui        = require('./MixinMui.react'),
     ProConStore     = require('../stores/ProConStore'),
     ProConActions   = require('../actions/ProConActions'),
     ProConItem      = require('./ProConItem.react'),
-    ThemeManager    = new mui.Styles.ThemeManager(),
     Link            = Router.Link,
     TextField       = mui.TextField,
     Card            = mui.Card,
-    CardHeader      = mui.CardHeader,
     CardText        = mui.CardText,
+    CardHeader      = mui.CardHeader,
     FlatButton      = mui.FlatButton,
     CardActions     = mui.CardActions;
 
 var InputTextProCon = React.createClass({
 
     displayName: 'InputTextProCon',
-
-    childContextTypes: {
-        muiTheme: React.PropTypes.object
-    },
+    mixins:      [MixinMui],
 
     componentDidMount: function() {
         ProConStore.addChangeListener(this._handleOnChange);
@@ -28,12 +25,6 @@ var InputTextProCon = React.createClass({
 
     componentWillUnmount: function() {
         ProConStore.removeChangeListener(this._handleOnChange);
-    },
-
-    getChildContext: function() {
-        return {
-          muiTheme: ThemeManager.getCurrentTheme()
-        };
     },
 
     getInitialState: function() {

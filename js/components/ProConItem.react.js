@@ -1,23 +1,14 @@
 
 var React        = require('react'),
     mui          = require('material-ui'),
-    ThemeManager = new mui.Styles.ThemeManager(),
-    Card         = mui.Card;
+    MixinMui     = require('./MixinMui.react'),
+    Card         = mui.Card,
     CardText     = mui.CardText;
 
 var ProConItem = React.createClass({
 
     displayName: 'ProConItem',
-
-    childContextTypes: {
-        muiTheme: React.PropTypes.object
-    },
-
-    getChildContext: function() {
-        return {
-          muiTheme: ThemeManager.getCurrentTheme()
-        };
-    },
+    mixins:      [MixinMui],
 
     getCardClassName: function() {
         return (this.props.data.type == 'pro')

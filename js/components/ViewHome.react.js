@@ -4,23 +4,14 @@ var React             = require('react'),
     Card              = mui.Card,
     CardText          = mui.CardText,
     CardTitle         = mui.CardTitle,
-    ThemeManager      = new mui.Styles.ThemeManager(),
+    MixinMui          = require('./MixinMui.react'),
     InputTextQuestion = require('./InputTextQuestion.react'),
     InputTextProCon   = require('./InputTextProCon.react');
 
 var ViewHome = React.createClass({
 
     displayName: 'ViewHome',
-
-    childContextTypes: {
-        muiTheme: React.PropTypes.object
-    },
-
-    getChildContext: function() {
-        return {
-          muiTheme: ThemeManager.getCurrentTheme()
-        };
-    },
+    mixins:      [MixinMui],
 
     /**
     * @return {object}

@@ -4,22 +4,13 @@ var React        = require('react'),
     Card         = mui.Card,
     CardText     = mui.CardText,
     CardTitle    = mui.CardTitle,
-    ThemeManager = new mui.Styles.ThemeManager(),
+    MixinMui     = require('./MixinMui.react'),
     InputRate    = require('./InputRate.react');
 
 var ViewRate = React.createClass({
 
     displayName: 'ViewRate',
-
-    childContextTypes: {
-        muiTheme: React.PropTypes.object
-    },
-
-    getChildContext: function() {
-        return {
-          muiTheme: ThemeManager.getCurrentTheme()
-        };
-    },
+    mixins:      [MixinMui],
 
     /**
     * @return {object}

@@ -2,31 +2,14 @@
 var React           = require('react'),
     Router          = require('react-router'),
     mui             = require('material-ui'),
+    MixinMui        = require('./MixinMui.react'),
     ProConStore     = require('../stores/ProConStore'),
-    ProConActions   = require('../actions/ProConActions'),
-    ProConItem      = require('./ProConItem.react'),
-    ThemeManager    = new mui.Styles.ThemeManager(),
-    TextField       = mui.TextField,
-    Card            = mui.Card,
-    CardHeader      = mui.CardHeader,
-    CardText        = mui.CardText,
-    FlatButton      = mui.FlatButton,
-    CardActions     = mui.CardActions;
+    ProConItem      = require('./ProConItem.react');
 
 var InputRate = React.createClass({
 
     displayName: 'InputRate',
-    mixins     : [Router.Navigation],
-
-    childContextTypes: {
-        muiTheme: React.PropTypes.object
-    },
-
-    getChildContext: function() {
-        return {
-          muiTheme: ThemeManager.getCurrentTheme()
-        };
-    },
+    mixins:      [MixinMui, Router.Navigation],
 
     /**
     * @return {object}
