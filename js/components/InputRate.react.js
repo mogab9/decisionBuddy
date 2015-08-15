@@ -4,7 +4,8 @@ var React           = require('react'),
     mui             = require('material-ui'),
     MixinMui        = require('./MixinMui.react'),
     ProConStore     = require('../stores/ProConStore'),
-    ProConItem      = require('./ProConItem.react');
+    ProConItem      = require('./ProConItem.react'),
+    RatingButtons   = require('./RatingButtons.react');
 
 var InputRate = React.createClass({
 
@@ -23,9 +24,12 @@ var InputRate = React.createClass({
         if (proConToRate == true)
             this.transitionTo('result');
         return (
-            <ul className="proConRate">
-                <li><ProConItem data={proConToRate} /></li>
-            </ul>
+            <div className="proConRate">
+                <ul className="proConRate">
+                    <li><ProConItem data={proConToRate} /></li>
+                </ul>
+                <RatingButtons />
+            </div>
         );
     },
 
