@@ -38,7 +38,7 @@ var ProConStore = assign({}, EventEmitter.prototype, {
                 if (proConObject.rate == undefined)
                     return proConObject;
             });
-            if (typeof result === 'object')
+            if (typeof result[0] === 'object')
                 return result[0];
         }
         // no more item to rate
@@ -85,7 +85,21 @@ var ProConStore = assign({}, EventEmitter.prototype, {
             text: text,
             rate: undefined
         });
-    }
+    },
+
+    /**
+    * @param {string} a pro id or a con id (i.e pro_2)
+    * @param {string} a mark given to rate this pro/con
+    */
+    rate: function(id, rate) {
+        for(var index in _data) {
+            _data[index].map(function(proCon, arrayIndex) {
+                if (id === proCon.id) {
+                    _data[index][arrayIndex].rate = rate;
+                }
+            });
+        }
+    },
 
 });
 
@@ -99,6 +113,11 @@ AppDispatcher.register(function(action) {
 
         case AppConstants.PROCONLIST_ADDCON:
             ProConStore.addCon(action.text);
+            ProConStore.emitChange();
+            break;
+
+        case AppConstants.PROCONLIST_RATE:
+            ProConStore.rate(action.id, action.rate);
             ProConStore.emitChange();
             break;
 

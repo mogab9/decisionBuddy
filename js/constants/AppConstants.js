@@ -6,4 +6,5 @@ module.exports = keyMirror({
   QUESTION_ADD_QUESTIONMARK: null,
   PROCONLIST_ADDPRO:         null,
   PROCONLIST_ADDCON:         null,
+  PROCONLIST_RATE:           null,
 });

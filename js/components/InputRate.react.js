@@ -1,34 +1,53 @@
 
-var React           = require('react'),
-    Router          = require('react-router'),
-    mui             = require('material-ui'),
-    MixinMui        = require('./MixinMui.react'),
-    ProConStore     = require('../stores/ProConStore'),
-    ProConItem      = require('./ProConItem.react'),
-    RatingButtons   = require('./RatingButtons.react');
+var React         = require('react'),
+    Router        = require('react-router'),
+    mui           = require('material-ui'),
+    MixinMui      = require('./MixinMui.react'),
+    ProConStore   = require('../stores/ProConStore'),
+    ProConItem    = require('./ProConItem.react'),
+    RatingButtons = require('./RatingButtons.react');
 
 var InputRate = React.createClass({
 
     displayName: 'InputRate',
     mixins:      [MixinMui, Router.Navigation],
 
+    componentDidMount: function() {
+        ProConStore.addChangeListener(this._handleOnChange);
+    },
+
+    componentWillUnmount: function() {
+        ProConStore.removeChangeListener(this._handleOnChange);
+    },
+
+    getInitialState: function() {
+        return {
+            proConToRate: ProConStore.getNextUnmarkedProCon()
+        };
+    },
+
+    _handleOnChange: function(e) {
+        this.setState({
+            proConToRate: ProConStore.getNextUnmarkedProCon()
+        });
+    },
+
     /**
     * @return {object}
     */
     render: function() {
-        var proConToRate = ProConStore.getNextUnmarkedProCon();
         // no pro in list and no con in list, redirect to home page
-        if (proConToRate == false)
+        if (this.state.proConToRate == false)
             this.transitionTo('/');
         // no more pro/con to rate, redirect to result page
-        if (proConToRate == true)
+        if (this.state.proConToRate == true)
             this.transitionTo('result');
         return (
             <div className="proConRate">
                 <ul className="proConRate">
-                    <li><ProConItem data={proConToRate} /></li>
+                    <li><ProConItem data={this.state.proConToRate} /></li>
                 </ul>
-                <RatingButtons />
+                <RatingButtons proConItem={this.state.proConToRate}/>
             </div>
         );
     },

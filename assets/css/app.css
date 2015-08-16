@@ -16,3 +16,7 @@ ul {
 .concard {
     background-color: #C78181!important; //red
 }
+.ratingButtons li{
+    display: inline-block;
+    padding: 0.5em;
+}

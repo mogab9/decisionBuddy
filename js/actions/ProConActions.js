@@ -15,6 +15,13 @@ var ProConActions = {
             text       : text
         });
     },
+    rate: function(id, rate) {
+        AppDispatcher.dispatch({
+            actionType : AppConstants.PROCONLIST_RATE,
+            id         : id,
+            rate       : rate
+        });
+    },
 };
 
 module.exports = ProConActions;
