@@ -34,19 +34,47 @@ var ProConStore = assign({}, EventEmitter.prototype, {
             return false;
         // find next unrated proConObject
         for (var key in _data) {
+            // list all unrated element in this list (pro or con)
             var result = _data[key].map(function(proConObject) {
                 if (proConObject.rate == undefined)
                     return proConObject;
             });
-            if (typeof result[0] === 'object')
-                return result[0];
+            // return next unrated element
+            for (var index in result) {
+                if (typeof result[index] === 'object')
+                    return result[index];
+            }
         }
         // no more item to rate
         return true;
     },
 
+    /**
+    * @return {object} containing pros, cons, proPct, conPct as keys
+    */
+    getResult: function() {
+        var rate = [];
+        // check all pro and con have been rated
+        if (this.getNextUnmarkedProCon() !== true)
+            return this.error("All pro and con have not yet been rated.");
+        // calculate result
+        for (var key in _data) {
+            rate[key] = 0;
+            for (var index in _data[key])
+                rate[key] += _data[key][index].rate;
+        }
+        // add proPct and conPct
+        rate.proPct = (rate.pros / (rate.pros + rate.cons)).toFixed(2) * 100;
+        rate.conPct = 100 - rate.proPct;
+        return rate;
+    },
+
     emitChange: function() {
         this.emit(CHANGE_EVENT);
+    },
+
+    error: function(msg) {
+        return { error: msg }
     },
 
     /**

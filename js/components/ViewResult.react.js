@@ -1,5 +1,6 @@
 
-var React      = require('react');
+var React  = require('react'),
+    Result = require('./Result.react');
 
 var ViewResult = React.createClass({
 
@@ -10,7 +11,9 @@ var ViewResult = React.createClass({
     */
     render: function() {
         return (
-            <div className="Result">ViewResult</div>
+            <div className="Result">
+                <Result />
+            </div>
         );
     },
 
