@@ -7,7 +7,8 @@
 */
 .wrapper {
     margin: 25px auto;
-    width:  400px;;
+    width:  100%;
+    max-width: 400px;
 }
 .proconcard {
     margin-bottom: 15px;
@@ -24,14 +25,14 @@ li::before {
     content:       " ";
     float:         left;
     border-radius: 50%;
-    width:         25px;
-    height:        25px;
+    width:         45px;
+    height:        30px;
     margin-right:  10px;
-    margin-top:    15px;
-    padding-left:  15px;
-    padding-top:   7px;
+    margin-top:    10px;
+    padding-top:   15px;
     font-weight:   bold;
     color:         white;
+    text-align:    center;
 }
 li.procard::before {
     background-color: #81C784!important;
