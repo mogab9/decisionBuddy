@@ -40,7 +40,7 @@ var RatingButtons = React.createClass({
         var buttonList = [0,1,2,3,4,5,6,7,8,9,10],
             proConItem = this.props.proConItem;
         return (
-            <ul className="ratingButtons">
+            <ul id="ratingButtons">
                 {buttonList.map(function(value) {
                     return (
                         <li key={"ratingBtn_"+value}>

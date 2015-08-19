@@ -45,9 +45,9 @@ var InputRate = React.createClass({
         return (
             <div className="proConRate">
                 <ul className="proConRate">
-                    <li><ProConItem data={this.state.proConToRate} /></li>
+                    <ProConItem data={this.state.proConToRate} />
                 </ul>
-                <RatingButtons proConItem={this.state.proConToRate}/>
+                <RatingButtons proConItem = {this.state.proConToRate} />
             </div>
         );
     },
