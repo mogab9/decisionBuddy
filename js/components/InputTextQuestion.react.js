@@ -50,13 +50,14 @@ var InputTextQuestion = React.createClass({
         return (
           <div className="textQuestion">
             <TextField
-              ref            = "inputQuestion"
-              hintText       = "type here a decision you want to consider ..."
-              fullWidth      = {true}
-              value          = {this.state.questionValue}
-              onBlur         = {this._handleQuestionInputBlur}
-              onEnterKeyDown = {this._handleQuestionInputKeyDown}
-              onChange       = {this._handleOnChange}
+                className      = "inputTextField"
+                ref            = "inputQuestion"
+                hintText       = "type here a decision you want to consider ..."
+                fullWidth      = {true}
+                value          = {this.state.questionValue}
+                onBlur         = {this._handleQuestionInputBlur}
+                onEnterKeyDown = {this._handleQuestionInputKeyDown}
+                onChange       = {this._handleOnChange}
             />
           </div>
         );

@@ -88,9 +88,10 @@ var InputTextProCon = React.createClass({
                 <Card>
                     <CardText>
                         <TextField
-                          ref       = "inputProCon"
-                          hintText  = "type a pro or con here"
-                          fullWidth = {true}
+                            className = "inputTextField"
+                            ref       = "inputProCon"
+                            hintText  = "type a pro or con here"
+                            fullWidth = {true}
                         />
                         <CardActions>
                             <FlatButton
@@ -111,7 +112,7 @@ var InputTextProCon = React.createClass({
                 <ul>
                     {proConList.map(function(list) {
                         return list.map(function(object) {
-                            return <li><ProConItem data={object} /></li>;
+                            return <ProConItem data={object} />;
                         });
                     })}
                 </ul>

@@ -10,7 +10,7 @@ var ProConItem = React.createClass({
     displayName: 'ProConItem',
     mixins:      [MixinMui],
 
-    getCardClassName: function() {
+    getProConClassName: function() {
         return (this.props.data.type == 'pro')
             ? 'proconcard procard'
             : 'proconcard concard';
@@ -18,11 +18,13 @@ var ProConItem = React.createClass({
 
     render: function() {
         return (
-            <Card className={this.getCardClassName()}>
-                <CardText key={this.props.data.id}>
-                    <span>{this.props.data.text}</span>
-                </CardText>
-            </Card>
+            <li className={this.getProConClassName()}>
+                <Card>
+                    <CardText key={this.props.data.id}>
+                        <span>{this.props.data.text}</span>
+                    </CardText>
+                </Card>
+            </li>
         );
     }
 });

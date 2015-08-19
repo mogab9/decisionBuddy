@@ -4,17 +4,35 @@
 * Green:      #81C784
 * Blue:       #81C3C7
 */
-ul {
-    list-style-type: none;
+.wrapper {
+    margin: 0 auto;
+    width:  500px;
 }
 .proconcard {
-    margin-bottom: 1em;
+    margin-bottom: 15px;
 }
-.procard {
-    background-color: #81C784!important; //green
+ul {
+    margin-top: 15px;
+    -webkit-padding-start: 10px;
 }
-.concard {
-    background-color: #C78181!important; //red
+li::before {
+    content:       " ";
+    float:         left;
+    border-radius: 50%;
+    width:         25px;
+    height:        25px;
+    margin-right:  10px;
+    margin-top:    15px;
+}
+li.procard::before {
+    background-color: #81C784!important;
+}
+li.concard::before {
+    background-color: #D67171!important;
+}
+.inputTextField div {
+    font-size: 1.25em;
+    color: #555555 !important;
 }
 .ratingButtons li{
     display: inline-block;
