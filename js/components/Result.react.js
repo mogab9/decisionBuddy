@@ -6,6 +6,7 @@ var React          = require('react'),
     ResultPositive = require('./ResultPositive.react'),
     ResultMixed    = require('./ResultMixed.react'),
     ResultNegative = require('./ResultNegative.react'),
+    ProConItem     = require('./ProConItem.react'),
     ProConStore    = require('../stores/ProConStore');
 
 var Result = React.createClass({
@@ -15,7 +16,8 @@ var Result = React.createClass({
 
     getInitialState: function() {
         return {
-            result: ProConStore.getResult()
+            proConList: ProConStore.getAll(),
+            result:     ProConStore.getResult()
         };
     },
 
@@ -38,9 +40,19 @@ var Result = React.createClass({
             return <span/>;
         }
         var resultView = this.getResultView();
+        var proConList = [this.state.proConList.pros, this.state.proConList.cons];
         return (
-          <div className="result">
+          <div id="result">
+              <h1>Result</h1>
               {resultView}
+              <h1>Recap</h1>
+              <ul>
+                  {proConList.map(function(list) {
+                      return list.map(function(object) {
+                          return <ProConItem data={object} />;
+                      });
+                  })}
+              </ul>
           </div>
         );
     },

@@ -8,8 +8,9 @@ var React           = require('react'),
 
 var InputTextQuestion = React.createClass({
 
-    displayName: 'InputTextQuestion',
-    mixins:      [MixinMui],
+    displayName:     'InputTextQuestion',
+    mixins:          [MixinMui],
+    isInputDisabled: false,
 
     componentDidMount: function() {
         QuestionStore.addChangeListener(this._handleOnChange);
@@ -22,7 +23,11 @@ var InputTextQuestion = React.createClass({
     },
 
     getInitialState: function() {
+        if (this.props.data != undefined && this.props.data.disabled) {
+            this.isInputDisabled = true;
+        }
         return {
+            disabled:      this.isInputDisabled,
             questionValue: QuestionStore.get()
         };
     },
@@ -32,11 +37,15 @@ var InputTextQuestion = React.createClass({
     },
 
     _handleQuestionInputBlur: function(e) {
+        if (this.isInputDisabled)
+            return false;
         QuestionActions.addQuestionMark( this.refs.inputQuestion.getValue() );
         this.focus();
     },
 
     _handleQuestionInputKeyDown: function(e) {
+        if (this.isInputDisabled)
+            return false;
         this.focus();
     },
 
@@ -66,6 +75,7 @@ var InputTextQuestion = React.createClass({
                 onBlur         = {this._handleQuestionInputBlur}
                 onEnterKeyDown = {this._handleQuestionInputKeyDown}
                 onChange       = {this._handleOnChange}
+                disabled       = {this.isInputDisabled}
             />
           </div>
         );

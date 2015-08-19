@@ -17,8 +17,11 @@ var ProConItem = React.createClass({
     },
 
     render: function() {
+        var cssRateClass = (this.props.data.rate != undefined)
+            ? ' rate_'+this.props.data.rate
+            : '';
         return (
-            <li className={this.getProConClassName()}>
+            <li className = {this.getProConClassName()+cssRateClass}>
                 <Card>
                     <CardText key={this.props.data.id}>
                         <span>{this.props.data.text}</span>

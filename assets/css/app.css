@@ -28,6 +28,10 @@ li::before {
     height:        25px;
     margin-right:  10px;
     margin-top:    15px;
+    padding-left:  15px;
+    padding-top:   7px;
+    font-weight:   bold;
+    color:         white;
 }
 li.procard::before {
     background-color: #81C784!important;
@@ -35,6 +39,17 @@ li.procard::before {
 li.concard::before {
     background-color: #D67171!important;
 }
+.rate_0::before  {content: "0"}
+.rate_1::before  {content: "1"}
+.rate_2::before  {content: "2"}
+.rate_3::before  {content: "3"}
+.rate_4::before  {content: "4"}
+.rate_5::before  {content: "5"}
+.rate_6::before  {content: "6"}
+.rate_7::before  {content: "7"}
+.rate_8::before  {content: "8"}
+.rate_9::before  {content: "9"}
+.rate_10::before {content: "10"}
 .inputTextField div {
     font-size: 1.25em;
     color: #999999!important;
