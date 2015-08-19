@@ -42,18 +42,19 @@ var Result = React.createClass({
         var resultView = this.getResultView();
         var proConList = [this.state.proConList.pros, this.state.proConList.cons];
         return (
-          <div id="result">
-              <h1>Result</h1>
-              {resultView}
-              <h1>Recap</h1>
-              <ul>
-                  {proConList.map(function(list) {
-                      return list.map(function(object) {
-                          return <ProConItem data={object} />;
-                      });
-                  })}
-              </ul>
-          </div>
+            <div id="result">
+                <h1>Result</h1>
+                {resultView}
+                <h1>Recap</h1>
+                <p>{this.state.result.proPct}% Pros / {this.state.result.conPct}% Cons</p>
+                <ul>
+                    {proConList.map(function(list) {
+                        return list.map(function(object) {
+                            return <ProConItem data={object} />;
+                        });
+                    })}
+                </ul>
+            </div>
         );
     },
 
