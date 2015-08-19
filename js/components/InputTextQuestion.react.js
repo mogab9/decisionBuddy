@@ -13,6 +13,8 @@ var InputTextQuestion = React.createClass({
 
     componentDidMount: function() {
         QuestionStore.addChangeListener(this._handleOnChange);
+        // give focus to question input
+        document.getElementById('inputTextQuestion').focus();
     },
 
     componentWillUnmount: function() {
@@ -21,16 +23,21 @@ var InputTextQuestion = React.createClass({
 
     getInitialState: function() {
         return {
-          questionValue: QuestionStore.get()
+            questionValue: QuestionStore.get()
         };
+    },
+
+    focus: function() {
+        document.getElementById('inputTextProCon').focus();
     },
 
     _handleQuestionInputBlur: function(e) {
         QuestionActions.addQuestionMark( this.refs.inputQuestion.getValue() );
+        this.focus();
     },
 
     _handleQuestionInputKeyDown: function(e) {
-        e.target.blur();
+        this.focus();
     },
 
     _handleOnChange: function(e) {
@@ -50,9 +57,10 @@ var InputTextQuestion = React.createClass({
         return (
           <div className="textQuestion">
             <TextField
+                id             = "inputTextQuestion"
                 className      = "inputTextField"
                 ref            = "inputQuestion"
-                hintText       = "type here a decision you want to consider ..."
+                hintText       = "Should I buy this new house?"
                 fullWidth      = {true}
                 value          = {this.state.questionValue}
                 onBlur         = {this._handleQuestionInputBlur}

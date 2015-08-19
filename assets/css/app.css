@@ -1,12 +1,13 @@
 /**
 * Palette
-* Red:        #C78181
+* Red:        #D67171
 * Green:      #81C784
 * Blue:       #81C3C7
+* Yellow:     #F1DF52
 */
 .wrapper {
-    margin: 0 auto;
-    width:  500px;
+    margin: 25px auto;
+    width:  400px;;
 }
 .proconcard {
     margin-bottom: 15px;
@@ -32,7 +33,19 @@ li.concard::before {
 }
 .inputTextField div {
     font-size: 1.25em;
-    color: #555555 !important;
+    color: #999999!important;
+}
+.textQuestion {
+    margin-bottom: 5px;
+}
+#btnPro {
+    background-color: #81C784!important;
+}
+#btnCon {
+    background-color: #D67171!important;
+}
+#btnFinish {
+    background-color: #F1DF52!important;
 }
 .ratingButtons li{
     display: inline-block;

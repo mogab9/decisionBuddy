@@ -11,7 +11,7 @@ var React           = require('react'),
     Card            = mui.Card,
     CardText        = mui.CardText,
     CardHeader      = mui.CardHeader,
-    FlatButton      = mui.FlatButton,
+    RaisedButton    = mui.RaisedButton,
     CardActions     = mui.CardActions;
 
 var InputTextProCon = React.createClass({
@@ -66,7 +66,8 @@ var InputTextProCon = React.createClass({
         if (this.getCanBeFinished()) {
             return (
                 <Link to="rate">
-                    <FlatButton
+                    <RaisedButton
+                        id    = "btnFinish"
                         ref   = "finish"
                         label = "finish"
                     />
@@ -88,21 +89,24 @@ var InputTextProCon = React.createClass({
                 <Card>
                     <CardText>
                         <TextField
+                            id        = "inputTextProCon"
                             className = "inputTextField"
                             ref       = "inputProCon"
-                            hintText  = "type a pro or con here"
+                            hintText  = "House is very good located"
                             fullWidth = {true}
                         />
                         <CardActions>
-                            <FlatButton
-                                ref     = "addPro"
-                                label   = "Pro"
-                                onClick = {this._handleProInputClick}
+                            <RaisedButton
+                                id        = "btnPro"
+                                ref       = "addPro"
+                                label     = "Pro"
+                                onClick   = {this._handleProInputClick}
                             />
-                            <FlatButton
-                                ref     = "addCon"
-                                label   = "Con"
-                                onClick = {this._handleConInputClick}
+                            <RaisedButton
+                                id        = "btnCon"
+                                ref       = "addCon"
+                                label     = "Con"
+                                onClick   = {this._handleConInputClick}
                             />
                             {this.getFinishButton()}
                         </CardActions>
