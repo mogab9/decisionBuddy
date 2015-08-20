@@ -117,7 +117,7 @@ var ProConStore = assign({}, EventEmitter.prototype, {
 
     /**
     * @param {string} a pro id or a con id (i.e pro_2)
-    * @param {string} a mark given to rate this pro/con
+    * @param {string} a mark given to rate this pro/con (from 1 to 5)
     */
     rate: function(id, rate) {
         for(var index in _data) {

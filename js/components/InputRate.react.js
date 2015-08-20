@@ -5,7 +5,7 @@ var React         = require('react'),
     MixinMui      = require('./MixinMui.react'),
     ProConStore   = require('../stores/ProConStore'),
     ProConItem    = require('./ProConItem.react'),
-    RatingButtons = require('./RatingButtons.react');
+    InputRateStars = require('./InputRateStars.react');
 
 var InputRate = React.createClass({
 
@@ -47,7 +47,7 @@ var InputRate = React.createClass({
                 <ul className="proConRate">
                     <ProConItem data={this.state.proConToRate} />
                 </ul>
-                <RatingButtons proConItem = {this.state.proConToRate} />
+                <InputRateStars proConItem={this.state.proConToRate} />
             </div>
         );
     },
