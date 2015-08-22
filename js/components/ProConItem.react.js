@@ -18,7 +18,7 @@ var ProConItem = React.createClass({
 
     render: function() {
         var cssRateClass = (this.props.data.rate != undefined)
-            ? ' rate_'+this.props.data.rate
+            ? ' rate_'+this.props.data.type+this.props.data.rate
             : '';
         return (
             <li className = {this.getProConClassName()+cssRateClass}>

@@ -41,17 +41,16 @@ li.procard::before {
 li.concard::before {
     background-color: #D67171!important;
 }
-.rate_0::before  {content: "0"}
-.rate_1::before  {content: "1"}
-.rate_2::before  {content: "2"}
-.rate_3::before  {content: "3"}
-.rate_4::before  {content: "4"}
-.rate_5::before  {content: "5"}
-.rate_6::before  {content: "6"}
-.rate_7::before  {content: "7"}
-.rate_8::before  {content: "8"}
-.rate_9::before  {content: "9"}
-.rate_10::before {content: "10"}
+li.rate_pro1::before {content: "+1"}
+li.rate_pro2::before {content: "+2"}
+li.rate_pro3::before {content: "+3"}
+li.rate_pro4::before {content: "+4"}
+li.rate_pro5::before {content: "+5"}
+li.rate_con1::before {content: "-1"}
+li.rate_con2::before {content: "-2"}
+li.rate_con3::before {content: "-3"}
+li.rate_con4::before {content: "-4"}
+li.rate_con5::before {content: "-5"}
 .inputTextField div {
     font-size: 1.25em;
     color: #999999!important;
