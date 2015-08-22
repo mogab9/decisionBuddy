@@ -13,7 +13,7 @@ var ResultNegative = React.createClass({
     */
     render: function() {
         return (
-          <div>Don't do it. Pro do not overcome Cons!</div>
+          <div className="conColor">Don't do it. Pros do not overcome Cons.</div>
         );
     },
 

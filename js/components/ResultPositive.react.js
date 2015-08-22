@@ -13,7 +13,7 @@ var ResultPositive = React.createClass({
     */
     render: function() {
         return (
-          <div>Do it!</div>
+          <div className="proColor">Do it! Pros overcome Cons.</div>
         );
     },
 

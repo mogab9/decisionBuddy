@@ -13,7 +13,7 @@ var ResultMixed = React.createClass({
     */
     render: function() {
         return (
-          <div>Result is mixed. Don't do it or think twice about it before you do it.</div>
+          <div className="mixedColor">Result is mixed. Don't do it or think twice about it before you do it.</div>
         );
     },
 

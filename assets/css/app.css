@@ -129,3 +129,8 @@ h1 {
 .user-rating li:active i,
 .user-rating li:active ~ li i { transform: scale(0.9) }
 /*@end*/
+#result div { font-size: 140%; }
+
+.proColor {color: #81C784;}
+.conColor {color: #D67171;}
+.mixedColor { color: rgb(187, 174, 69); }
