@@ -64,8 +64,8 @@ var ProConStore = assign({}, EventEmitter.prototype, {
                 rate[key] += parseInt(_data[key][index].rate);
         }
         // add proPct and conPct
-        rate.proPct = (rate.pros / (rate.pros + rate.cons)).toFixed(2) * 100;
-        rate.conPct = 100 - rate.proPct;
+        rate.proPct = Number((rate.pros / (rate.pros + rate.cons) * 100).toFixed(2));
+        rate.conPct = Number((100 - rate.proPct).toFixed(2));
         return rate;
     },
 
