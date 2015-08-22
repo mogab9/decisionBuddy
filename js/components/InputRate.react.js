@@ -47,6 +47,7 @@ var InputRate = React.createClass({
                 <ul className="proConRate">
                     <ProConItem data={this.state.proConToRate} />
                 </ul>
+                <h1>Rate Importance</h1>
                 <InputRateStars proConItem={this.state.proConToRate} />
             </div>
         );

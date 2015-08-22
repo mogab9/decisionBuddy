@@ -74,11 +74,10 @@ li.rate_con5::before {content: "-5"}
 }
 /*@ratingStars*/
 html { box-sizing: border-box; }
-/* *, *:before, *:after { box-sizing: inherit; }*/
 
 h1 {
   color: #000;
-  font-size: 300%;
+  font-size: 200%;
   line-height: 1em;
   text-transform: uppercase;
   text-shadow: 0 1px 1px rgba(255,255,255,0.25);
@@ -93,45 +92,11 @@ h1 {
 }
 .rating {
   position: relative;
-  display: inline-block;
-  min-width: 5em;
-  padding: 0.5em;
-  text-align: center;
-  color: #999999;
-  font-size: 300%;
   font-size: 1.20em !important;
-  font-weight: bold;
-  background: #eee;
-  box-shadow:
-    0 0 0 0.5em #fff,
-    0 1.5em 0 0.5em #fff,
-    0 2em 0.25em 0.25em rgba(0,0,0,0.4);
   cursor: pointer;
-  transition: all 100ms;
 }
 
 .rating.hide { color: rgba(0,0,0,0); }
-
-.rating:after {
-  content: '';
-  top: 100%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  margin-left: -0.25em;
-  border: 0.25em solid transparent;
-  border-top-color: #eee;
-}
-
-.rating:before {
-  position: absolute;
-  top: 100%; left: 0;
-  width: 100%;
-  padding: 0.02em;
-  margin-top: 0.3em;
-  color: #eb0;
-  font-size: 120%;
-}
 
 .user-rating {
   position: absolute; z-index: 1;
@@ -146,11 +111,6 @@ h1 {
   transform: translateX(-50%) scale(1);
   transition: all 300ms cubic-bezier(.07,.77,.46,1.47);
   -webkit-padding-start: 5px;
-}
-
-.user-rating.animate {
-	opacity: 0;
-	transform: translateX(-50%) scale(0);
 }
 
 .user-rating li {

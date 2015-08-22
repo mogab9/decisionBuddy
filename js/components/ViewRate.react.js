@@ -1,11 +1,11 @@
 
-var React        = require('react'),
-    mui          = require('material-ui'),
-    Card         = mui.Card,
-    CardText     = mui.CardText,
-    CardTitle    = mui.CardTitle,
-    MixinMui     = require('./MixinMui.react'),
-    InputRate    = require('./InputRate.react');
+var React     = require('react'),
+    mui       = require('material-ui'),
+    Card      = mui.Card,
+    CardText  = mui.CardText,
+    CardTitle = mui.CardTitle,
+    MixinMui  = require('./MixinMui.react'),
+    InputRate = require('./InputRate.react');
 
 var ViewRate = React.createClass({
 
