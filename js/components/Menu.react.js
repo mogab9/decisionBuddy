@@ -67,6 +67,8 @@ var Menu = React.createClass({
                             title   = "About"
                             actions = {dialogAboutActions}
                             modal   = {false}
+                            autoDetectWindowHeight={true}
+                            autoScrollBodyContent={true}
                         >
                         This app was inspired by a <a href="http://time.com/3772262/billionaire-trick-for-decisions" target="_blank">Time article about a billionaire's trick for decisions</a>.<br/><br/>
                         At first it seems like a simple pro-and-con list.<br/>
